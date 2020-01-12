@@ -1,14 +1,14 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "<h1>Hello,</h1><h2>World</h2>"
+    return render_template("index.html")
     
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), 
-            port=int(os.environ.get("PORT")), 
+            port=os.environ.get("PORT"), 
             debug=True)
     
